@@ -33,13 +33,13 @@ This project implements direct and inverse kinematics algorithms for a SCARA (Se
   
 - **Relaxed Constraint Kinematic Inversion:**
   
-  -Implement Jacobian pseudo-inverse method
-  -Maximize distance from mechanical joint limits
-  -Relax the orientation component ϕ
+  - Implement Jacobian pseudo-inverse method
+  - Maximize distance from mechanical joint limits
+  - Relax the orientation component ϕ
 
 - **Repository Structure**
   
-  -init.m: Initialization script
-  -kinematic_traj.mat: Trajectory data file
-  -visualize_results.m: Results visualization function
-  -plot_outputs.m: Sample function for plotting joint errors
+  - init.m: Initialization script
+  - kinematic_traj.mat: Trajectory data file
+  - visualize_results.m: Results visualization function
+  - plot_outputs.m: Sample function for plotting joint errors
