@@ -1,0 +1,24 @@
+function [position,theta_z]= direct_kin(q)
+
+% Extract robot parameters
+    d0 = 1;    % Base height
+    a1 = 0.5;   % Length of link 1
+    a2 = 0.5;   % Length of link 2
+
+    % Extract joint variables
+    theta1 = q(1);
+    theta2 = q(2);
+    d3 = q(3);
+    theta4 = q(4);
+
+
+A1 = [cos(theta1) -sin(theta1) 0 a1.*cos(theta1); sin(theta1) cos(theta1) 0 a1.*sin(theta1); 0 0 1 d0; 0 0 0 1];
+A12 = [cos(theta2) -sin(theta2) 0 a2.*cos(theta2); sin(theta2) cos(theta2) 0 a2.*sin(theta2);0 0 1 0;0 0 0 1];
+A23 = [1 0 0 0;0 1 0 0;0 0 1 -d3;0 0 0 1];
+A34 = [cos(theta4) -sin(theta4) 0 0;sin(theta4) cos(theta4) 0 0;0 0 1 0;0 0 0 1];
+
+T04 = A1*A12*A23*A34;
+
+position = transpose(T04(1:3, 4));             % x, y, z position
+    theta_z = theta1 + theta2 + theta4;
+end
