@@ -1,0 +1,1 @@
+# SCARA-Manipulator-Inverse-Kinematics-algorithm-with-Jacobian-Inverse
