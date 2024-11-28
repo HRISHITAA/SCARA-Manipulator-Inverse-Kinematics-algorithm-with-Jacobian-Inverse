@@ -1,6 +1,6 @@
 ## Introduction
 
-This project implements direct and inverse kinematics algorithms for a SCARA (Selective Compliance Assembly Robot Arm) manipulator. It analyses and controls the manipulator's end-effector trajectory using the inverse kinematic algorithm with Jacobian inverse method.
+This project implements direct and inverse kinematics algorithms for a SCARA (Selective Compliance Assembly Robot Arm) manipulator. It analyses and controls the manipulator's end-effector trajectory using the inverse kinematic algorithm with Jacobian inverse and Jacobian transpose method.
 
 ## Project Overview
 
@@ -43,3 +43,15 @@ This project implements direct and inverse kinematics algorithms for a SCARA (Se
   - kinematic_traj.mat: Trajectory data file
   - visualize_results.m: Results visualization function
   - plot_outputs.m: Sample function for plotting joint errors
+
+## SCARA-Manipulator-Inverse-Kinematics-algorithm-with-Jacobian-Inverse-Block-Diagram
+![image](https://github.com/user-attachments/assets/ab6d9c72-b4e2-4735-a2f3-a196d79390bd)
+
+## Graph: clik_inverse 
+![image](https://github.com/user-attachments/assets/f96e74ad-a204-4753-815f-022b0a84e14c)
+
+## SCARA-Manipulator-Inverse-Kinematics-algorithm-with-Jacobian-Transpose-Block-Diagram
+![image](https://github.com/user-attachments/assets/5106636a-d25a-4c3c-95f2-51eb3305cc2f)
+
+## Graph: clik_transpose
+![image](https://github.com/user-attachments/assets/57948cd0-4053-491c-bddf-612929fed237)
