@@ -1,0 +1,50 @@
+function q_dot  = jacobian_trans(q, e_position, e_orientation)
+    
+
+    function J_trans = jacobian_trans(q)
+        % Extract joint variables
+        theta1 = q(1);
+        theta2 = q(2);
+        d3 = q(3);
+        theta4 = q(4);
+    
+        % Define manipulator parameters
+        a1 = 0.5;
+        a2 = 0.5;
+    
+        % Compute elements of the Jacobian matrix
+        J11 = -a1*sin(theta1) - a2*sin(theta1 + theta2);
+        J12 = -a2*sin(theta1 + theta2);
+        J13 = 0;
+        J14 = 0;
+        
+        J21 = a1*cos(theta1) + a2*cos(theta1 + theta2);
+        J22 = a2*cos(theta1 + theta2);
+        J23 = 0;
+        J24 = 0;
+        
+        J31 = 0;
+        J32 = 0;
+        J33 = -d3; % Since d3 moves along -z axis
+        J34 = 0;
+    
+        J41 = 1;
+        J42 = 1;
+        J43 = 0;
+        J44 = 1;
+        % Assemble the Jacobian matrix
+        J = [J11, J12, J13, J14;
+             J21, J22, J23, J24;
+             J31, J32, J33, J34;
+             J41, J42, J43, J44];
+    
+        % Compute the inverse of the Jacobian matrix
+        % Use pinv for numerical stability in case of singularities
+        J_trans = (J).';
+    end
+e_position = e_position.';
+e_orientation = e_orientation.';
+J_trans = jacobian_trans(q);
+e_position_orientation = [ e_position; e_orientation ];
+q_dot = J_trans * (e_position_orientation);
+end
